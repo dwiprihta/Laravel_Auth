@@ -39,6 +39,16 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        @auth
+                            <li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{url('/')}}">Tabel Jurusan</a>
+                            </li>
+
+                            <li class="nav-item">
+                            <a class="nav-link" href="{{url('/jurusans/create')}}">Tambah Jurusan</a>
+                            </li>
+                        @endauth
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

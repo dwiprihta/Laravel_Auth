@@ -55,7 +55,7 @@ class JurusanController extends Controller
     public function show(Jurusan $jurusan)
     {
         //tampilkan jurusan
-        return view('jurusan.edit',compact('jurusan'));
+        return view('jurusan.show',compact('jurusan'));
     }
 
     /**
@@ -86,7 +86,7 @@ class JurusanController extends Controller
         'jumlah_mahasiswa'=>'required|min:10|integer',
     ]);
     $jurusan->update($validateData);
-    return redirect('/jurusan/'.$jurusan->id)->with('pesan',"Jurusan $jurusan->nama_jurusan berhasil diupdate");
+    return redirect('/jurusans/'.$jurusan->id)->with('pesan',"Jurusan $jurusan->nama_jurusan berhasil diupdate");
     }
 
     /**
@@ -100,6 +100,6 @@ class JurusanController extends Controller
         //delete
         $jurusan->delete();
         return redirect('/')
-        ->with('pesan',"Jurusan $jurusan->nama_jurusan Berhasil Diupdate");
+        ->with('pesan',"Jurusan $jurusan->nama_jurusan Berhasil Dihapus");
     }
 }
