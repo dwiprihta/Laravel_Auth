@@ -37,6 +37,9 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
+        //batasi akses untuk proses store
+        $this->authorize('create',Jurusan::class);
+
         $validateData=$request->validate([
             'nama_jurusan'=>'required', 
             'nama_dekan'=>'required',
@@ -98,6 +101,7 @@ class JurusanController extends Controller
     public function destroy(Jurusan $jurusan)
     {
         //delete
+        $this->authorize('delete',$jurusan);
         $jurusan->delete();
         return redirect('/')
         ->with('pesan',"Jurusan $jurusan->nama_jurusan Berhasil Dihapus");

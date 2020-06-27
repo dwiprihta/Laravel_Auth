@@ -6,11 +6,13 @@
                 <div class="pt-4 d-flex justify-content-end align-items-center">
                     <h1 class="h2 mr-auto">Info jurusan</h1>
                     <a href="{{url('/jurusans/'.$jurusan->id.'/edit')}}" class="btn btn-primary">Edit</a>
+                    @can ('create', $jurusan)
                     <form action="{{url('/jurusans/'.$jurusan->id)}}" method="POST">
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger ml-3">Hapus</button>
                         @csrf
                     </form>
+                    @endcan
                 </div>
                 <hr>
                 @if (session()->has('pesan'))

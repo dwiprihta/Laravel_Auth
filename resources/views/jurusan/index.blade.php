@@ -5,9 +5,11 @@
 <div class="col-12">
     <div class="py-4 d-flex justify-content-end align-items-center">
         <h1 class="h2 mr-auto">Table Jurusan</h1>
+        @can ('create',App\Jurusan::class)
         <a href="{{url('/jurusans/create')}}" class="btn btn-primary">
             Tambah Jurusan
         </a>
+        @endcan
     </div>
 
     @if (session()->has('pesan'))
